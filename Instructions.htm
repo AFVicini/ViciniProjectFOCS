@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      2026 Project &middot; Foundations of Computer Science
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https:&#x2F;&#x2F;gdv.github.io&#x2F;foundationsCS/css/poole.css">
+  <link rel="stylesheet" href="https:&#x2F;&#x2F;gdv.github.io&#x2F;foundationsCS/css/syntax.css">
+  <link rel="stylesheet" href="https:&#x2F;&#x2F;gdv.github.io&#x2F;foundationsCS/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="https:&#x2F;&#x2F;gdv.github.io&#x2F;foundationsCS/favicon.png">
+
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="container content">
+        
+<div class="page">
+  <h1 class="page-title">2026 Project</h1>
+  <p>The dataset <a rel="external" href="https://www.google.com/search?q=https://drive.google.com/uc%3Fexport%3Ddownload%26id%3D1P6eZPCg1FwpXnbq2Yt52RTdvDLk4PSD9">student_dropout_risk_2026.csv.gz</a> contains one row for each
+university student (identified by <code>person_id</code>), with demographic,
+economic, academic and behavioural information.
+The column <code>dropout</code> is <code>1</code> if the student has dropped out, <code>0</code> otherwise.
+All columns whose values are <code>0</code>/<code>1</code> are boolean flags.</p>
+<h3 id="notes">Notes</h3>
+<ol>
+<li>It is mandatory to use GitHub for developing the project.</li>
+<li>The project must be a Jupyter notebook.</li>
+<li>There is no restriction on the libraries that can be used, nor on the Python version.</li>
+<li>All questions on the project <strong>must</strong> be asked in the Discussion forum on the course website.</li>
+<li>1,2, or 3 students can be in each group. You must create the groups by yourself.</li>
+<li>Avoid explicit <code>for</code> loops over the rows of the dataframe, unless the exercise explicitly asks for them.</li>
+</ol>
+<!---->
+<h3 id="1">1.</h3>
+<p>Extract all students that study <code>Online</code>, have an <code>attendance_rate</code>
+smaller than 50, and have more than 5 <code>missed_deadlines</code>.
+Store them in a dataframe called <code>at_risk</code>.</p>
+<h3 id="2">2.</h3>
+<p>Then compute, for each <code>course_type</code>, how many of those students there
+are and what fraction of them has dropped out. Store the result in a
+dataframe called <code>at_risk_by_course</code>, with columns <code>students</code> and
+<code>dropout_rate</code>, sorted by decreasing <code>dropout_rate</code>.</p>
+<h3 id="3">3.</h3>
+<p>Add to the dataframe the following columns:</p>
+<ul>
+<li><code>pass_rate</code>: the ratio between <code>units_passed</code> and <code>units_enrolled</code>;</li>
+<li><code>gpa_change</code>: the difference between <code>gpa_semester_2</code> and <code>gpa_semester_1</code>;</li>
+<li><code>gpa_trend</code>: a string that is <code>"improving"</code> if <code>gpa_change</code> is larger than 0.5,
+<code>"declining"</code> if <code>gpa_change</code> is smaller than -0.5, and <code>"stable"</code> otherwise.</li>
+</ul>
+<h3 id="4">4.</h3>
+<p>Verify that, for every student, <code>units_passed + units_failed</code> equals
+<code>units_enrolled</code>; if not, report the rows violating this condition.</p>
+<h3 id="5">5.</h3>
+<p>Compute the dropout rate for each value of <code>gpa_trend</code>, and the
+<code>person_id</code> of the 10 students with the largest GPA drop.</p>
+<!---->
+<h3 id="6">6.</h3>
+<p>Partition the students into the following groups, according to
+<code>weekly_work_hours</code>: <code>0</code>, <code>1-10</code>, <code>11-20</code>, <code>21-30</code>, <code>more than 30</code>
+(all intervals include both extremes).</p>
+<h3 id="7">7.</h3>
+<p>Build a risk score by summing:</p>
+<ul>
+<li>2 points if the tuition is not up to date;</li>
+<li>1 point if <code>stress_level</code> is at least 8;</li>
+<li>1 point if <code>sleep_hours</code> is smaller than 5;</li>
+<li>1 point if the student has a part-time job with more than 20 weekly work hours;</li>
+<li>2 points if <code>attendance_rate</code> is smaller than 60;</li>
+<li>1 point if <code>missed_deadlines</code> is larger than 3.</li>
+</ul>
+<p>For each value of the risk score, compute the number of students and the
+dropout rate.</p>
+<!---->
+<h3 id="8">8.</h3>
+<p>Read the GDP per capita dataset published by Our World in Data
+directly from the URL</p>
+<pre><code>https://ourworldindata.org/grapher/gdp-per-capita-worldbank.csv?v=1&amp;csvType=full&amp;useColumnShortNames=true
+</code></pre>
+<p>and store it in a dataframe called <code>gdp</code>. The column <code>ny_gdp_pcap_pp_kd</code>
+contains the GDP per capita.</p>
+<p>Clean the dataset, removing the rows that do not correspond to a single country
+(e.g. <code>World</code>, <code>High-income countries</code>).
+For each country keep only the row with the most recent <code>year</code>.</p>
+<h3 id="9">9.</h3>
+<p>Join the GPD data with the students data.
+Compute the dropout rate for each continent.</p>
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
